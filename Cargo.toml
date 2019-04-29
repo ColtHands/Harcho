@@ -1,0 +1,9 @@
+[package]
+name = "rust"
+version = "0.1.0"
+authors = ["f1ks3r <f1ks3r@yandex.ru>"]
+edition = "2018"
+
+[[bin]]
+path = "src/rust.rs"
+name = "main"
