@@ -1,3 +1,5 @@
+branch := $(shell git rev-parse --abbrev-ref HEAD)
+
 run:
 	$(MAKE) rust
 	$(MAKE) dotnet
@@ -19,3 +21,10 @@ py:
 hask:
 	echo "RUNNING HASKELL"
 	runhaskell ./src/hask.hs
+
+save:
+	git branch
+	git status
+	git add .
+	git commit -m save
+	git push origin $(branch)
