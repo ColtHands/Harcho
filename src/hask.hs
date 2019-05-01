@@ -13,6 +13,8 @@ fib n = go 0 1 n
     go a b 0 = a
     go a b n = go b (a + b) (n - 1)
 
+findFibSumIfFibIsBelow n = sum $ filter (even) $ takeWhile (< n) fibs
+
 main = do
     print (mo3n5 1000)
     print (fib 35)

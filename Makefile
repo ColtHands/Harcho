@@ -22,6 +22,9 @@ hask:
 	echo "RUNNING HASKELL"
 	runhaskell ./src/hask.hs
 
+elixir:
+	elixir ./src/elixir.exs
+
 save:
 	git branch
 	git status
