@@ -25,6 +25,9 @@ hask:
 elixir:
 	elixir ./src/elixir.exs
 
+lisp:
+	sbcl --script ./src/common.lisp
+
 save:
 	git branch
 	git status
