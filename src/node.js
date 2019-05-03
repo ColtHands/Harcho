@@ -1,16 +1,24 @@
-let maxPrime = 2
-const num = 600851475143
-const timeOfStart = new Date().toLocaleDateString()
+// def largest_prime_factor(number):
+//     i = 2
+//     while number > 1:
+//         if number % i == 0:
+//             number /= i;
+//     i -= 1
+//     i += 1
+//     return i
 
-for(var i = 0; i < num; i++) {
-    console.log(`How long left: ${num-i}`);
-    if(num % i === 0) {
-        maxPrime = i
+const largest_prime_factor = (num) => {
+    let i = 2
+    while(num > 1) {
+        console.log("WHILE I", i);
+        console.log("WHILE num", num);
+        if(num % i == 0){
+            num = num / i
+            i -= 1
+        }
+        i += 1
     }
+    return i
 }
 
-const timeOfEnd = new Date().toLocaleDateString()
-
-console.log('Time of start', timeOfStart);
-console.log('Time of end', timeOfEnd);
-console.log(maxPrime)
+console.log(largest_prime_factor(600851475143));
