@@ -28,6 +28,6 @@
     (read)
 )
 
-;; (sb-ext:save-lisp-and-die "hw"
+;; (sb-ext:save-lisp-and-die "hw.exe"
 ;;     :executable t
 ;;     :toplevel 'main)
