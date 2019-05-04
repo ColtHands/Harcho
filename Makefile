@@ -28,9 +28,6 @@ elixir:
 lisp:
 	sbcl --script ./src/common.lisp
 
-node:
-	node ./src/node.js
-
 save:
 	git branch
 	git status
