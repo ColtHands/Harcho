@@ -20,17 +20,18 @@ fn prime() {
 }
 
 fn smallest_multiple() {
-    let arr = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-    let mut num = 3;
-    // using fold
+    let mut num = 1;
     let mut done = false;
 
     while !done {
-        let sum = arr.iter().fold(0i64, |a, &b| (a % num) + (b % num));
+        let mut summ = 0;
+        for i in 1..20 {
+            summ = summ + (num % i);
+        }
 
-        println!("num is {}, sum is {}", num, sum);
+        println!("num is {}, sum is {}", num, summ);
 
-        if sum == 0 {
+        if summ == 0 {
             done = true
         }
 

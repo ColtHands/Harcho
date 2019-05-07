@@ -22,7 +22,6 @@ smallestMultiple num = trace (tracingSmallestMultiple num) $
         then (print num)
         else smallestMultiple (num + 1)
 
-
 main = do
     print (mo3n5 1000)
     print (fib 35)
