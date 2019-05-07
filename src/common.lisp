@@ -23,6 +23,8 @@
 
 (print *default-pathname-defaults*)
 
+(loop while (1 == 1))
+
 (defun main()
     (format t "Hello, world!~%")
     (read)
