@@ -23,13 +23,13 @@ smallestMultiple num = trace (tracingSmallestMultiple num) $
         then (print num)
         else smallestMultiple (num + 1)
 
-sumOfSquares = sum [n^2 | n <- [1..10]]
-
+sumOfSquares n = sum [n^2 | n <- [1..n]]
+squareOfSum n = (sum [1..n])^2
+squareOfSumSumOfSquaresDifference n = squareOfSum n - sumOfSquares n
 main = do
     print (mo3n5 1000)
     print (fib 35)
     print ((fib 32) < 4000000)
     print (sum [fib(n) | n <- [1..33], fib(n) % 2 == 0])
     -- smallestMultiple 1
-    print (filterManyByDivisibility [11..20] [1..])
-    print sumOfSquares
+    print (squareOfSumSumOfSquaresDifference 100)
