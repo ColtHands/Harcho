@@ -20,11 +20,12 @@ fn prime() {
 }
 
 fn smallest_multiple() {
-    let mut num = 1;
+    let mut num = 230000000;
     let mut done = false;
 
     while !done {
         let mut summ = 0;
+
         for i in 1..20 {
             summ = summ + (num % i);
         }

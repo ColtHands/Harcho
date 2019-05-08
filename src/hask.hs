@@ -2,6 +2,7 @@ module Main (mo3n5, fib, main) where
 
 import Control.Monad (forM_, mapM_)
 import Debug.Trace (trace)
+import Data.List
 
 a % b = a `mod` b
 
@@ -22,9 +23,13 @@ smallestMultiple num = trace (tracingSmallestMultiple num) $
         then (print num)
         else smallestMultiple (num + 1)
 
+sumOfSquares = sum [n^2 | n <- [1..10]]
+
 main = do
     print (mo3n5 1000)
     print (fib 35)
     print ((fib 32) < 4000000)
     print (sum [fib(n) | n <- [1..33], fib(n) % 2 == 0])
-    smallestMultiple 1
+    -- smallestMultiple 1
+    print (filterManyByDivisibility [11..20] [1..])
+    print sumOfSquares

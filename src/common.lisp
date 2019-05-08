@@ -1,35 +1,27 @@
-;; (require "asdf")
-;; (print (asdf:asdf-version))
-
-;; (print (merge-pathnames *default-pathname-defaults* "/src/123.lisp"))
-;; (load (merge-pathnames *default-pathname-defaults* "src/123.lisp"))
 (defvar libfile (merge-pathnames "./lib/123.lisp" *load-truename*))
 
-;; (defvar src-directory (concatenate *default-pathname-defaults* "/src/123.lisp"))
-
 (load libfile)
-;; (print *load-pathname*)
+(print *load-pathname*)
 (print *load-truename*)
-
-;; (format t "hello format")
-(print "hello print")
-(print 123)
-
-;; (format t "input text ~%")
-
-(defvar bih "asd")
-
-(print bih)
-
 (print *default-pathname-defaults*)
 
-(loop while (1 == 1))
 
-(defun main()
+(defun p-5 (l)
+    "Takes a list (l) of positive integers, and returns their least common multiple (LCM). Uses the built-in function LCM."
+    (reduce #'lcm l))
+
+(defun range (maxi &key (mini 0) (step 1))
+    "Takes a value (maxi) and keyword arguments (mini and step), and returns a list of numbers ranging from mini to maxi in steps of step."
+    (loop :for n :from mini :to maxi :by step :collect n))
+
+(print (p-5 (range 20 :mini 1 :step 1)))
+
+(defun main1()
     (format t "Hello, world!~%")
     (read)
 )
 
+;; компилит .exe
 ;; (sb-ext:save-lisp-and-die "hw.exe"
 ;;     :executable t
 ;;     :toplevel 'main)
