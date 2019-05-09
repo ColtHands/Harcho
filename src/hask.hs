@@ -38,8 +38,5 @@ main = do
     print (fib 35)
     print ((fib 32) < 4000000)
     print (sum [fib(n) | n <- [1..33], fib(n) % 2 == 0])
-<<<<<<< Updated upstream
-    -- smallestMultiple 1
     print (squareOfSumSumOfSquaresDifference 100)
-=======
->>>>>>> Stashed changes
+    print abbeyCollatzSequence 15
