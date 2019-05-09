@@ -7,7 +7,7 @@ fn prime() {
     // let num:i64 = 600851475143;
     let num:i64 = 13195;
     let mut prime:i64 = num % 17;
-    
+
     println!("num is {}", num);
 
     for i in 1..num {
