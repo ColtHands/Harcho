@@ -15,6 +15,13 @@ fib n = go 0 1 n
         go a b 0 = a
         go a b n = go b (a + b) (n - 1)
 
+abbeyCollatzSequence :: Integer -> [Integer]
+abbeyCollatzSequence 1 = [1]
+abbeyCollatzSequence x =
+    if x % 2 == 0 then
+        abbeyCollatzSequence (x / 2)
+    else
+        abbeyCollatzSequence (3 * x + 1)
 
 tracingSmallestMultiple num = "num = " ++ show num ++ " array = " ++ show ([num % n | n <- [1..20]]) ++ " sum = " ++ show (sum [num % n | n <- [1..20]])
 
@@ -31,5 +38,8 @@ main = do
     print (fib 35)
     print ((fib 32) < 4000000)
     print (sum [fib(n) | n <- [1..33], fib(n) % 2 == 0])
+<<<<<<< Updated upstream
     -- smallestMultiple 1
     print (squareOfSumSumOfSquaresDifference 100)
+=======
+>>>>>>> Stashed changes
