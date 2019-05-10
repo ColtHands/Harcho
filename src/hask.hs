@@ -15,11 +15,19 @@ fib n = go 0 1 n
         go a b 0 = a
         go a b n = go b (a + b) (n - 1)
 
-abbeyCollatzSequence :: Integer -> [Char]
-abbeyCollatzSequence x
-    | x == 1 = 1
-    | x % 2 == 0 = (show (abbeyCollatzSequence ((x `quot` 2))))
-    | True = (show (abbeyCollatzSequence (3 * x + 1)))
+collatzFn :: Int -> Int
+collatzFn n
+    | even n = n `div` 2
+    | True = 3 * n +1
+
+collatzList :: Int -> [Int]
+collatzList n
+    | n == 1 = [1]
+    | True = n : collatzList (collatzFn n)
+
+collatzLength n = length (collatzList (n)) - 1
+
+abbeyCollatz arrOfStrOfInts = unwords (map show (map collatzLength (map read (words arrOfStrOfInts) :: [Int])))
 
 tracingSmallestMultiple num = "num = " ++ show num ++ " array = " ++ show ([num % n | n <- [1..20]]) ++ " sum = " ++ show (sum [num % n | n <- [1..20]])
 
@@ -35,4 +43,6 @@ main = do
     print ((fib 32) < 4000000)
     print (sum [fib(n) | n <- [1..33], fib(n) % 2 == 0])
     print (squareOfSumSumOfSquaresDifference 100)
-    -- print (abbeyCollatzSequence 15)
+    print (collatzFn 15)
+    print (collatzList 15)
+    print (abbeyCollatz "121 1373 125 16326 12 263 2070 17 19655 398 2918 3225 46937 7785 33 218 2470 471 246")
