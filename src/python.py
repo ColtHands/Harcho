@@ -17,7 +17,7 @@ def smallest_multiple(num):
     while loop:
         i++
         for x in arr:
-            
+
     return "asd"
 
 smallest_multiple(123)
