@@ -10,10 +10,6 @@ rust:
 	echo "RUNNING RUST"
 	cargo run
 
-dotnet:
-	echo "RUNNING DOTNET"
-	dotnet run ./src/Index.cs
-
 py:
 	echo "RUNNING PYTHON"
 	python ./src/python.py

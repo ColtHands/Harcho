@@ -8,9 +8,6 @@ ghc --version
 runhaskell --version
 8.6.5
 
-dotnet --version
-2.2.101
-
 cargo --version
 1.34.0 (6789d8a0a 2019-04-01)
 
