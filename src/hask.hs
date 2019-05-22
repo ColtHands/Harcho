@@ -1,4 +1,4 @@
-{-# LANGUAGE QuasiQuotes, OverloadedStrings #-}
+{-# LANGUAGE QuasiQuotes, OverloadedStrings, FlexibleInstances, UndecidableInstances, DuplicateRecordFields #-}
 
 module Main (mo3n5, fib, main) where
 
@@ -41,6 +41,9 @@ smallestMultiple num = trace (tracingSmallestMultiple num) $
 sumOfSquares n = sum [n^2 | n <- [1..n]]
 squareOfSum n = (sum [1..n])^2
 squareOfSumSumOfSquaresDifference n = squareOfSum n - sumOfSquares n
+
+printstuff i = print "asd"
+
 main = do
     print (mo3n5 1000)
     print (fib 35)
@@ -52,3 +55,4 @@ main = do
     print (abbeyCollatz "121 1373 125 16326 12 263 2070 17 19655 398 2918 3225 46937 7785 33 218 2470 471 246")
     print (abbeyLinearFn 0 0 1 1)
     print (abbeyLinearFn (-721) (67723) (861) (-80985))
+    forM_ [1,2,4] printstuff
