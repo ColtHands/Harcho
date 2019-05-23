@@ -44,6 +44,16 @@ squareOfSumSumOfSquaresDifference n = squareOfSum n - sumOfSquares n
 
 printstuff i = print "asd"
 
+primes :: [Int]
+primes = 2 : 3 : filter (isPrime primes) [5, 7..]
+
+isPrime :: [Int] -> Int -> Bool
+isPrime (p:ps) n
+    -- No need to check divisors past sqrt(n), we know n is prime
+    | p*p > n = True 
+    -- Otherwise, it's prime if none of the primes we've discovered so far divide it evenly
+    | otherwise = n `rem` p /= 0 && isPrime ps n
+
 main = do
     print (mo3n5 1000)
     print (fib 35)
@@ -56,3 +66,4 @@ main = do
     print (abbeyLinearFn 0 0 1 1)
     print (abbeyLinearFn (-721) (67723) (861) (-80985))
     forM_ [1,2,4] printstuff
+    print (primes!!10000)
