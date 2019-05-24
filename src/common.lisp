@@ -1,10 +1,10 @@
 (defvar libfile (merge-pathnames "./lib/123.lisp" *load-truename*))
+(defvar list1 (list 17 28 30))
 
 (load libfile)
 (print *load-pathname*)
 (print *load-truename*)
 (print *default-pathname-defaults*)
-
 
 (defun p-5 (l)
     "Takes a list (l) of positive integers, and returns their least common multiple (LCM). Uses the built-in function LCM."
@@ -16,10 +16,12 @@
 
 (print (p-5 (range 20 :mini 1 :step 1)))
 
-(defun main1()
-    (format t "Hello, world!~%")
-    (read)
+(defun main(args)
+    (format t "Hello, lisp!~%")
+    (quit)
 )
+
+(main())
 
 ;; компилит .exe
 ;; (sb-ext:save-lisp-and-die "hw.exe"

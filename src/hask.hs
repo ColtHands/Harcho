@@ -42,7 +42,7 @@ sumOfSquares n = sum [n^2 | n <- [1..n]]
 squareOfSum n = (sum [1..n])^2
 squareOfSumSumOfSquaresDifference n = squareOfSum n - sumOfSquares n
 
-printstuff i = print "asd"
+printstuff _ = print "asd"
 
 primes :: [Int]
 primes = 2 : 3 : filter (isPrime primes) [5, 7..]
@@ -53,6 +53,8 @@ isPrime (p:ps) n
     | p*p > n = True 
     -- Otherwise, it's prime if none of the primes we've discovered so far divide it evenly
     | otherwise = n `rem` p /= 0 && isPrime ps n
+
+doubleList list1 list2 = zip list1 list2
 
 main = do
     print (mo3n5 1000)
@@ -67,3 +69,4 @@ main = do
     print (abbeyLinearFn (-721) (67723) (861) (-80985))
     forM_ [1,2,4] printstuff
     print (primes!!10000)
+    print (doubleList [123,123,2] [1,23,4])
