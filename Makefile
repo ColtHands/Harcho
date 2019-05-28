@@ -24,6 +24,9 @@ elixir:
 lisp:
 	sbcl --script ./src/common.lisp
 
+ps:
+	powershell.exe -noexit -file "C:\Users\F1ks3r\desktop\stuff\junk\solyanka\PowerShell.ps1" "MY-PC"
+
 save:
 	git branch
 	git status
