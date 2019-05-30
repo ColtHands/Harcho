@@ -54,7 +54,10 @@ isPrime (p:ps) n
     -- Otherwise, it's prime if none of the primes we've discovered so far divide it evenly
     | otherwise = n `rem` p /= 0 && isPrime ps n
 
+twoArraysToupled = zip [17, 28, 30] [99, 16, 8]
 
+compareTouples :: (Integer, Integer) -> (Bool, Bool)
+compareTouples tup = (fst tup > snd tup, fst tup < snd tup)
 
 main = do
     print (mo3n5 1000)
@@ -69,4 +72,5 @@ main = do
     print (abbeyLinearFn (-721) (67723) (861) (-80985))
     forM_ [1,2,4] printstuff
     print (primes!!10000)
-    print (zip [123,123,2] [1,23,4])
+    print ([length (filter (== True) (fst (unzip (map compareTouples twoArraysToupled)))), length (filter (== True) (snd (unzip (map compareTouples twoArraysToupled))))])
+    
