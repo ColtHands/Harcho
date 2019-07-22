@@ -9,6 +9,6 @@ path = "src/rust.rs"
 name = "main"
 
 [lib]
-path = "lib/lib.rs"
+path = "src/lib/lib.rs"
 name="my_lib"
 crate-type = ["dylib"]
