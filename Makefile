@@ -27,6 +27,9 @@ lisp:
 ps:
 	powershell.exe -noexit -file "C:\Users\F1ks3r\desktop\stuff\junk\solyanka\PowerShell.ps1" "MY-PC"
 
+php:
+	php ./src/php.php
+
 save:
 	git branch
 	git status
