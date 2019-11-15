@@ -12,23 +12,23 @@ rust:
 
 py:
 	echo "RUNNING PYTHON"
-	python ./src/python.py
+	python ./src/python/index.py
 
 hask:
 	echo "RUNNING HASKELL"
-	runhaskell ./src/hask.hs
+	runhaskell ./src/haskell/index.hs
 
 elixir:
-	elixir ./src/elixir.exs
+	elixir ./src/elixir/index.exs
 
 lisp:
-	sbcl --script ./src/common.lisp
+	sbcl --script ./src/lisp/index.lisp
 
 ps:
 	powershell.exe -noexit -file "C:\Users\F1ks3r\desktop\stuff\junk\solyanka\PowerShell.ps1" "MY-PC"
 
 php:
-	php ./src/php.php
+	php ./src/php/index.php
 
 save:
 	git branch
@@ -37,3 +37,6 @@ save:
 	git commit -m save
 	git push origin $(branch)
 	git push bitbucket $(branch)
+
+update:
+	echo "asd"
