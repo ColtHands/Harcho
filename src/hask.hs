@@ -50,7 +50,7 @@ primes = 2 : 3 : filter (isPrime primes) [5, 7..]
 isPrime :: [Int] -> Int -> Bool
 isPrime (p:ps) n
     -- No need to check divisors past sqrt(n), we know n is prime
-    | p*p > n = True 
+    | p*p > n = True
     -- Otherwise, it's prime if none of the primes we've discovered so far divide it evenly
     | otherwise = n `rem` p /= 0 && isPrime ps n
 
