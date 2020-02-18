@@ -5,5 +5,10 @@ authors = ["f1ks3r <f1ks3r@yandex.ru>"]
 edition = "2018"
 
 [[bin]]
-path = "src/rust.rs"
+path = "src/rust/index.rs"
 name = "main"
+
+[lib]
+path = "src/lib/lib.rs"
+name="my_lib"
+crate-type = ["dylib"]
