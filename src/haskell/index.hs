@@ -59,18 +59,25 @@ twoArraysToupled = zip [17, 28, 30] [99, 16, 8]
 compareTouples :: (Integer, Integer) -> (Bool, Bool)
 compareTouples tup = (fst tup > snd tup, fst tup < snd tup)
 
+digits :: Integral x => x -> [x]
+digits 0 = []
+digits x = digits (x `div` 10) ++ [x `mod` 10]
+
+powerDigitSum = sum (digits (2^1000))
+
 main = do
-    print (mo3n5 1000)
-    print (fib 35)
-    print ((fib 32) < 4000000)
-    print (sum [fib(n) | n <- [1..33], fib(n) % 2 == 0])
-    print (squareOfSumSumOfSquaresDifference 100)
-    print (collatzFn 15)
-    print (collatzList 15)
-    print (abbeyCollatz "121 1373 125 16326 12 263 2070 17 19655 398 2918 3225 46937 7785 33 218 2470 471 246")
-    print (abbeyLinearFn 0 0 1 1)
-    print (abbeyLinearFn (-721) (67723) (861) (-80985))
-    forM_ [1,2,4] printstuff
-    print (primes!!10000)
-    print ([length (filter (== True) (fst (unzip (map compareTouples twoArraysToupled)))), length (filter (== True) (snd (unzip (map compareTouples twoArraysToupled))))])
+    print powerDigitSum
+    -- print (mo3n5 1000)
+    -- print (fib 35)
+    -- print ((fib 32) < 4000000)
+    -- print (sum [fib(n) | n <- [1..33], fib(n) % 2 == 0])
+    -- print (squareOfSumSumOfSquaresDifference 100)
+    -- print (collatzFn 15)
+    -- print (collatzList 15)
+    -- print (abbeyCollatz "121 1373 125 16326 12 263 2070 17 19655 398 2918 3225 46937 7785 33 218 2470 471 246")
+    -- print (abbeyLinearFn 0 0 1 1)
+    -- print (abbeyLinearFn (-721) (67723) (861) (-80985))
+    -- forM_ [1,2,4] printstuff
+    -- print (primes!!10000)
+    -- print ([length (filter (== True) (fst (unzip (map compareTouples twoArraysToupled)))), length (filter (== True) (snd (unzip (map compareTouples twoArraysToupled))))])
     
