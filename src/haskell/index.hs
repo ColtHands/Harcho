@@ -170,7 +170,7 @@ largeSum = [
 ]
 
 main = do
-    print largeSum
+    print (sum largeSum)
     -- print powerDigitSum
     -- print (mo3n5 1000)
     -- print (fib 35)
