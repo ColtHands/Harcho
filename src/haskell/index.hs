@@ -44,8 +44,8 @@ squareOfSumSumOfSquaresDifference n = squareOfSum n - sumOfSquares n
 
 printstuff _ = print "asd"
 
-primes :: [Int]
-primes = 2 : 3 : filter (isPrime primes) [5, 7..]
+primes :: Int -> [Int]
+primes n = 2 : 3 : filter (isPrime (primes n)) [5, 7..n]
 
 isPrime :: [Int] -> Int -> Bool
 isPrime (p:ps) n
@@ -59,18 +59,21 @@ twoArraysToupled = zip [17, 28, 30] [99, 16, 8]
 compareTouples :: (Integer, Integer) -> (Bool, Bool)
 compareTouples tup = (fst tup > snd tup, fst tup < snd tup)
 
+-- euler 10
+summPrimesBelow n = (sum (primes n))
+
 main = do
-    print (mo3n5 1000)
-    print (fib 35)
-    print ((fib 32) < 4000000)
-    print (sum [fib(n) | n <- [1..33], fib(n) % 2 == 0])
-    print (squareOfSumSumOfSquaresDifference 100)
-    print (collatzFn 15)
-    print (collatzList 15)
-    print (abbeyCollatz "121 1373 125 16326 12 263 2070 17 19655 398 2918 3225 46937 7785 33 218 2470 471 246")
-    print (abbeyLinearFn 0 0 1 1)
-    print (abbeyLinearFn (-721) (67723) (861) (-80985))
-    forM_ [1,2,4] printstuff
-    print (primes!!10000)
-    print ([length (filter (== True) (fst (unzip (map compareTouples twoArraysToupled)))), length (filter (== True) (snd (unzip (map compareTouples twoArraysToupled))))])
-    
+    print (summPrimesBelow 2000000)
+    -- print (mo3n5 1000)
+    -- print (fib 35)
+    -- print ((fib 32) < 4000000)
+    -- print (sum [fib(n) | n <- [1..33], fib(n) % 2 == 0])
+    -- print (squareOfSumSumOfSquaresDifference 100)
+    -- print (collatzFn 15)
+    -- print (collatzList 15)
+    -- print (abbeyCollatz "121 1373 125 16326 12 263 2070 17 19655 398 2918 3225 46937 7785 33 218 2470 471 246")
+    -- print (abbeyLinearFn 0 0 1 1)
+    -- print (abbeyLinearFn (-721) (67723) (861) (-80985))
+    -- forM_ [1,2,4] printstuff
+    -- print (primes!!10000)
+    -- print ([length (filter (== True) (fst (unzip (map compareTouples twoArraysToupled)))), length (filter (== True) (snd (unzip (map compareTouples twoArraysToupled))))])
