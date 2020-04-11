@@ -14,7 +14,7 @@ py:
 	echo "RUNNING PYTHON"
 	python ./src/python/index.py
 
-hask || hs:
+hask || hs || h:
 	echo "RUNNING HASKELL"
 	runhaskell ./src/haskell/index.hs
 
