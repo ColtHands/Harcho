@@ -5,6 +5,7 @@ module Main (mo3n5, fib, main) where
 import Control.Monad (forM_, mapM_)
 import Debug.Trace (trace)
 import Data.List
+import Data.List.Split (splitOn)
 
 a % b = a `mod` b
 
@@ -84,8 +85,24 @@ abbey152 = minimum [23133,54578,-76885,-44320,788,16854,77242,2372,-53168,21210,
 abbey6 = zipWith (abbey6Lambda) [-8447289,-3327546,-5802018,8452221,-7351226,5715,9061365,-2096209,7795,16415,4714832,1136710,2694187] [4180284,-2098826,4045162,24,83002,1968,-1762172,-2377185,1144,1682,878,213,-776040]
 abbey6Lambda a b = round (a / b)
 
+fahrenheitToCelsiusLambdaAbbey7 f = (f - 32) * (5/9)
+abbey7 = map round $ map fahrenheitToCelsiusLambdaAbbey7 $ [396, 326, 337, 336, 36, 249, 349, 441, 59, 254, 453, 83, 578, 185, 165, 496, 95, 433, 454, 473, 510, 331, 125, 258, 598, 314, 44, 453, 297, 478, 259, 92, 204, 565, 396, 209, 214]
+
+removeWovelFromString :: [Char] -> [Char]
+removeWovelFromString xs = [ x | x <- xs, (x `elem` ("aiueoy" :: [Char])) ]
+
+readInputs = do
+    x <- readFile "public/inputs.txt"
+    let inputs = splitOn "\n" x
+    let abbey20 = unwords (map show (map length $ (map removeWovelFromString $ inputs)))
+    print abbey20
+
+main :: IO()
 main = do
-    print (printWordedArrayForCodeAbbey abbey6)
+    readInputs
+    -- print (removeWovelFromString "asdasdsadaqfdsgrtukiu")
+    -- print (printWordedArrayForCodeAbbey abbey7)
+    -- print (printWordedArrayForCodeAbbey abbey6)
     -- print (abbey151)
     -- print (abbey152)
     -- print (printWordedArrayForCodeAbbey abbey5)
