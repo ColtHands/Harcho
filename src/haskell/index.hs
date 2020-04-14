@@ -94,8 +94,9 @@ removeWovelFromString xs = [ x | x <- xs, (x `elem` ("aiueoy" :: [Char])) ]
 readInputs = do
     x <- readFile "public/inputs.txt"
     let inputs = splitOn "\n" x
-    let abbey20 = unwords (map show (map length $ (map removeWovelFromString $ inputs)))
-    print abbey20
+    print inputs
+    -- let abbey20 = unwords (map show (map length $ (map removeWovelFromString $ inputs)))
+    -- print abbey20
 
 main :: IO()
 main = do
