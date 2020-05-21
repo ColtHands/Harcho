@@ -19,6 +19,11 @@ fn prime() {
     println!("new prime here {}", prime);
 }
 
+fn asd() {
+    fn buba() {
+    }
+}
+
 fn smallest_multiple() {
     let mut num = 230000000;
     let mut done = false;

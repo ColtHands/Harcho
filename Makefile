@@ -1,10 +1,21 @@
 branch := $(shell git rev-parse --abbrev-ref HEAD)
 
-run:
-	$(MAKE) rust
-	$(MAKE) dotnet
-	$(MAKE) python
-	$(MAKE) haskell
+# run:
+# 	$(MAKE) rust
+# 	$(MAKE) dotnet
+# 	$(MAKE) python
+# 	$(MAKE) haskell
+
+sharp:
+	dotnet run
+
+hask || hs || h:
+	echo "RUNNING HASKELL"
+	runhaskell ./src/haskell/index.hs
+
+node || n:
+	echo "RUNNING Node.js"
+	node src/js/index.js
 
 rust:
 	echo "RUNNING RUST"
@@ -13,10 +24,6 @@ rust:
 py:
 	echo "RUNNING PYTHON"
 	python ./src/python/index.py
-
-hask || hs || h:
-	echo "RUNNING HASKELL"
-	runhaskell ./src/haskell/index.hs
 
 elixir:
 	elixir ./src/elixir/index.exs

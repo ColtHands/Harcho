@@ -91,16 +91,54 @@ abbey7 = map round $ map fahrenheitToCelsiusLambdaAbbey7 $ [396, 326, 337, 336, 
 removeWovelFromString :: [Char] -> [Char]
 removeWovelFromString xs = [ x | x <- xs, (x `elem` ("aiueoy" :: [Char])) ]
 
-readInputs = do
+abbey20 = do
     x <- readFile "public/inputs.txt"
     let inputs = splitOn "\n" x
+    let res = printWordedArrayForCodeAbbey (map length $ (map removeWovelFromString $ inputs))
+    print res
+
+sumD 0 = 0
+sumD x = (x `mod` 10) + sumD (x `div` 10)
+
+abbey11 = do
+    x <- readFile "public/inputs.txt"
+    let inputs = printWordedArrayForCodeAbbey ((map sumD $ (map (\x -> x!!0 * x!!1 + x!!2) $ (map (\x -> (map read $ x) :: [Int]) $ (map (splitOn " ") $ splitOn "\n" x)))))
     print inputs
-    -- let abbey20 = unwords (map show (map length $ (map removeWovelFromString $ inputs)))
-    -- print abbey20
+
+readAbbeyArr withSomeAbbeyFunc = do
+    x <- readFile "public/inputs.txt"
+    let inputs = (map (withSomeAbbeyFunc) $ ((map (\x -> (map read $ x) :: [Int]) $ (map (splitOn " ") $ splitOn "\n" x))))
+    print (printWordedArrayForCodeAbbey inputs)
+
+abbey16 :: [Int] -> Int
+abbey16 arr = round ((fromIntegral (sum arr)) / (fromIntegral (length arr)))
+
+abbey9 :: [Int] -> Int
+abbey9 arr = do
+    let a = arr!!0
+    let b = arr!!1
+    let c = arr!!2
+    if (a + b) > c then
+        if (a + c) > b then
+            if (b + c) > a then 1
+            else 0
+        else 0
+    else 0
+
+abbey145 :: [Int] -> Integer
+abbey145 arr = do
+    let a = integerArr!!0
+    let b = integerArr!!1
+    let c = integerArr!!2
+    (a ^ (b % (c-1))) % c
+    where integerArr = map toInteger $ arr
+
+-- modExp :: Integer -> Integer -> Integer -> Integer
+-- modExp a b c = mod (a^(mod b (c-1))) (c)
 
 main :: IO()
 main = do
-    readInputs
+    readAbbeyArr abbey145
     -- print (removeWovelFromString "asdasdsadaqfdsgrtukiu")
     -- print (printWordedArrayForCodeAbbey abbey7)
     -- print (printWordedArrayForCodeAbbey abbey6)
