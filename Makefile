@@ -13,7 +13,7 @@ hask || hs || h:
 	echo "RUNNING HASKELL"
 	runhaskell ./src/haskell/index.hs
 
-node || n:
+node || n || js:
 	echo "RUNNING Node.js"
 	node src/js/index.js
 

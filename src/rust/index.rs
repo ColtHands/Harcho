@@ -20,8 +20,6 @@ fn prime() {
 }
 
 fn asd() {
-    fn buba() {
-    }
 }
 
 fn smallest_multiple() {

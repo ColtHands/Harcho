@@ -56,10 +56,24 @@ fs.readFile('public/inputs.txt', 'utf8', (err, data) => {
     //     }).join(",").replace(/,/g, " ")
     //     console.log(inputs);
     // }();
-    const abbey16 = function() {
-        const inputs = data.replace("\r", '').split("\n").map(e => e.split(" ").map(Number)).map(arr => {
-            const avg = arr.
-        }).join(",").replace(/,/g, " ")
-        console.log(inputs);
-    }();
+    // const abbey16 = function() {
+    //     const inputs = data.replace("\r", '').split("\n").map(e => e.split(" ").map(Number)).map(arr => {
+    //         const avg = arr.
+    //     }).join(",").replace(/,/g, " ")
+    //     console.log(inputs);
+    // }();
 })
+
+const DOF = function(focalLength = 55, aperture = 1.2) {
+    const subjectDistance = 5000
+    const circleOfConfusion = 0.03 // 35mm 
+    const hyperFocalDistance = (focalLength * focalLength) / (aperture * circleOfConfusion)
+    const nearFocusLimit = (hyperFocalDistance * subjectDistance) / (hyperFocalDistance + (subjectDistance - focalLength))
+    const futherFocusLimit = (hyperFocalDistance * subjectDistance) / (hyperFocalDistance - (subjectDistance - focalLength))
+    const depthOfField = Math.floor(futherFocusLimit - nearFocusLimit)
+    console.log("depthOfField", depthOfField)
+}
+
+DOF(55, 1.2)
+DOF(105, 1.8)
+DOF(85, 1.5)
