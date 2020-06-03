@@ -66,8 +66,9 @@ fs.readFile('public/inputs.txt', 'utf8', (err, data) => {
 
 const DOF = function(focalLength = 55, aperture = 1.2) {
     const subjectDistance = 5000
-    const circleOfConfusion = 0.03 // 35mm 
-    const hyperFocalDistance = (focalLength * focalLength) / (aperture * circleOfConfusion)
+    const circleOfConfusionFullFrame = 0.03 // 35mm
+    const circleOfConfusionAPSC = 0.018 // 35mm
+    const hyperFocalDistance = (focalLength * focalLength) / (aperture * circleOfConfusionAPSC)
     const nearFocusLimit = (hyperFocalDistance * subjectDistance) / (hyperFocalDistance + (subjectDistance - focalLength))
     const futherFocusLimit = (hyperFocalDistance * subjectDistance) / (hyperFocalDistance - (subjectDistance - focalLength))
     const depthOfField = Math.floor(futherFocusLimit - nearFocusLimit)
