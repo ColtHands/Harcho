@@ -6,14 +6,14 @@ branch := $(shell git rev-parse --abbrev-ref HEAD)
 # 	$(MAKE) python
 # 	$(MAKE) haskell
 
-sharp:
-	dotnet run
+asmr asmrmap:
+	node ./asmrmap/index.js
 
-hask || hs || h:
+hask hs h:
 	echo "RUNNING HASKELL"
 	runhaskell ./src/haskell/index.hs
 
-node || n || js:
+node n js:
 	echo "RUNNING Node.js"
 	node src/js/index.js
 
