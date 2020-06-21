@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "axios": "^0.19.2",
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "watch": "nodemon ./asmrmap/index.js"
+  },
+  "name": "solyanka",
+  "version": "1.0.0",
+  "main": "./asmrmap/index.js",
+  "repository": "https://github.com/LastDino/solyanka.git/",
+  "author": "F1ks3r <f1ks3r@yandex.ru>",
+  "license": "MIT",
+  "private": true
+}
