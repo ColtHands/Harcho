@@ -2,17 +2,17 @@
     "baseData": {
         "baseChannels": [
             {
-                "name": "Rambalac",
+                "channelName": "Rambalac",
                 "id": "UCAcsAE1tpLuP3y7UhxUoWpQ",
                 "playlistsIds": []
             },
             {
-                "name": "Nomadic Ambience",
+                "channelName": "Nomadic Ambience",
                 "id": "UCqRTj-Nu_8to3jIBlXptOtA",
                 "playlistsIds": []
             },
             {
-                "name": "TokyoStreetView - Japan The Beautiful",
+                "channelName": "TokyoStreetView - Japan The Beautiful",
                 "id": "UCAxMEpfzdJ2dkrplSWehgcA",
                 "playlistsIds": []
             }

@@ -4,7 +4,7 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "watch": "nodemon ./asmrmap/index.js"
+    "watch": "nodemon ./asmrmap/index.js --ignore ./asmrmap/data"
   },
   "name": "solyanka",
   "version": "1.0.0",
