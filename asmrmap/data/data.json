@@ -3,17 +3,17 @@
         "baseChannels": [
             {
                 "channelName": "Rambalac",
-                "id": "UCAcsAE1tpLuP3y7UhxUoWpQ",
+                "channelId": "UCAcsAE1tpLuP3y7UhxUoWpQ",
                 "playlistsIds": []
             },
             {
                 "channelName": "Nomadic Ambience",
-                "id": "UCqRTj-Nu_8to3jIBlXptOtA",
+                "channelId": "UCqRTj-Nu_8to3jIBlXptOtA",
                 "playlistsIds": []
             },
             {
                 "channelName": "TokyoStreetView - Japan The Beautiful",
-                "id": "UCAxMEpfzdJ2dkrplSWehgcA",
+                "channelId": "UCAxMEpfzdJ2dkrplSWehgcA",
                 "playlistsIds": []
             }
         ]
