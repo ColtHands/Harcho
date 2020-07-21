@@ -1,56 +1,57 @@
 const axios = require('axios')
 const fs = require('fs')
-const YT_API_TOKEN = 'AIzaSyA2p8emllzwOt7hs2EwSnJr-VqRXMoCT-o'
 // const GOOGLE_CLIENT_ID = '1069940620677-dclma97qlcg00t1cdsl5tkigur8blrk7.apps.googleusercontent.com'
 // const GOOGLE_CLIENT_SECRET = '709L5MKDaMDKM6ERh5mPzR8M'
 // const url1 = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=${YT_API_TOKEN}`
 // TODO "поменять с forUsername на ID"
-const url2 = id => `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${id}&key=${YT_API_TOKEN}`
-const url3 = (id, pageToken = '') => `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=1000&playlistId=${id}&key=${YT_API_TOKEN}&pageToken${pageToken}`
 
 class YT {
+    YT_API_TOKEN = 'AIzaSyA2p8emllzwOt7hs2EwSnJr-VqRXMoCT-o'
     dataModel = JSON.parse(fs.readFileSync('./asmrmap/data/data.json', 'utf8'));
     channelsArr = this.dataModel.baseData.baseChannels
+    channelContentUrl = id => `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${id}&key=${this.YT_API_TOKEN}`
+    playlistItemsUrl = (id, pageToken = '') => `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=12345&playlistId=${id}&key=${this.YT_API_TOKEN}&pageToken=${pageToken}`
 
     async run() {
-        const newChannelsData = this.channelsArr.map(async e => {
-            const playlists = await axios(url2(e.channelId)).then(e => e.data.items)
-            // console.log(playlists);
-            return await e
-        })
-        console.log('newChannelsData', newChannelsData)
-        return await newChannelsData
-        // fs.writeFileSync('./asmrmap/data/newdata.json', 'asdasd11232123')
+        const channelsWithPlaylistIds = await this.getUploadsPlaylist(this.channelsArr)
+        const channelsWithVids = await this.getVids(channelsWithPlaylistIds)
+        console.log('channelsWithVids', channelsWithVids);
+        fs.writeFileSync('./asmrmap/data/channelsWithVids.json', JSON.stringify({ channelsWithVids }), 'utf-8')
     }
 
-    // async getUploadsPlaylist (channelId) {
-    //     console.log('GETTING PLAYLISTS FOR channel: ', channelId);
+    async getUploadsPlaylist(channelsArr) {
+        return await Promise.all(channelsArr.map(async e => {
+            return axios(this.channelContentUrl(e.channelId)).then(res => {
+                const playlistIds = res.data.items.map(e => e.contentDetails.relatedPlaylists.uploads)
+                return { ...e, playlistIds }
+            })
+        }))
+    }
 
-    //     return await axios(url2(channelId))
-    // }
-    // async getVids(id) {
-    //     console.log('GETTING VIDEOS FROM PLAYLIST ID OF CHANNEL ID: ', id)
-    //     // setInterval(function(e){
+    async getVids(channelsWithPlaylistIds) {
+        const getVidsWithPage = async (e, pageToken) => {
+            return axios(this.playlistItemsUrl(e.playlistIds[0], pageToken)).then(async res => {
+                const singleChannelWithNewVids = { ...e, videos: [...e.videos, ...res.data.items]}
 
-    //     // }, 1500)
-    //     console.log('this got vids', this.getVids);
-    //     return await axios(url3(id)).then(e => {
-    //         // console.log('GOT VIDS items', e.data)
-    //         console.log('GOT VIDS next page token', e.data.nextPageToken)
-    //         console.log('GOT VIDS page info', e.data.pageInfo)
-    //         return e.data.items
-    //         e.data.items.forEach(e => {
-    //             // console.log(e.snippet.title)
-    //             // console.log(e.snippet.description)
-    //         })
-    //         // console.log(e.data.items.length);
-    //     })
-    // }
+                if(res.data.nextPageToken) {
+                    console.log('RECUSING')
+                    await getVidsWithPage(singleChannelWithNewVids, res.data.nextPageToken)
+                } else {
+                    console.log('RETURING', singleChannelWithNewVids, 'RETURING');
+                    return Promise.all([singleChannelWithNewVids])
+                }
+            })
+        }
+
+        return await Promise.all(channelsWithPlaylistIds.map(async e => {
+            const gettingVids = await getVidsWithPage(e)
+            console.log('gettingVids', gettingVids)
+            return gettingVids
+        }))
+    }
 }
 
-console.log(new YT().run())
-// new YT().run().then(e => { console.log(e) })
-// Promise.all(new YT().run())
+new YT().run()
 
 
 // TODO "подгрузить youtube api"
