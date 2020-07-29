@@ -35,19 +35,15 @@ class YT {
 
                 if(res.data.nextPageToken) {
                     console.log('RECUSING')
-                    await getVidsWithPage(singleChannelWithNewVids, res.data.nextPageToken)
+                    return await getVidsWithPage(singleChannelWithNewVids, res.data.nextPageToken)
                 } else {
-                    console.log('RETURING', singleChannelWithNewVids, 'RETURING');
-                    return Promise.all([singleChannelWithNewVids])
+                    console.log('RETURING');
+                    return Promise.resolve(singleChannelWithNewVids)
                 }
             })
         }
 
-        return await Promise.all(channelsWithPlaylistIds.map(async e => {
-            const gettingVids = await getVidsWithPage(e)
-            console.log('gettingVids', gettingVids)
-            return gettingVids
-        }))
+        return await Promise.all(channelsWithPlaylistIds.map(async e =>  await getVidsWithPage(e) ))
     }
 }
 
