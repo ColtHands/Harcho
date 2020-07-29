@@ -1,9 +1,5 @@
 const axios = require('axios')
 const fs = require('fs')
-// const GOOGLE_CLIENT_ID = '1069940620677-dclma97qlcg00t1cdsl5tkigur8blrk7.apps.googleusercontent.com'
-// const GOOGLE_CLIENT_SECRET = '709L5MKDaMDKM6ERh5mPzR8M'
-// const url1 = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=${YT_API_TOKEN}`
-// TODO "поменять с forUsername на ID"
 
 class YT {
     YT_API_TOKEN = 'AIzaSyA2p8emllzwOt7hs2EwSnJr-VqRXMoCT-o'
@@ -12,7 +8,7 @@ class YT {
     channelContentUrl = id => `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${id}&key=${this.YT_API_TOKEN}`
     playlistItemsUrl = (id, pageToken = '') => `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=12345&playlistId=${id}&key=${this.YT_API_TOKEN}&pageToken=${pageToken}`
 
-    async run() {
+    async getAllVidsWithInfo() {
         const channelsWithPlaylistIds = await this.getUploadsPlaylist(this.channelsArr)
         const channelsWithVids = await this.getVids(channelsWithPlaylistIds)
         console.log('channelsWithVids', channelsWithVids);
@@ -44,6 +40,11 @@ class YT {
         }
 
         return await Promise.all(channelsWithPlaylistIds.map(async e =>  await getVidsWithPage(e) ))
+    }
+
+    run() {
+        const asd = JSON.parse(fs.readFileSync('./asmrmap/data/channelsWithVids.json', 'utf8'))
+        console.log(asd)
     }
 }
 
