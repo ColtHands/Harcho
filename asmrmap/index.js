@@ -7,34 +7,25 @@ class YT {
         {
             "channelName": "Rambalac",
             "channelId": "UCAcsAE1tpLuP3y7UhxUoWpQ",
-            "playlistIds": [],
-            "videos": []
         },
         {
             "channelName": "Nomadic Ambience",
             "channelId": "UCqRTj-Nu_8to3jIBlXptOtA",
-            "playlistIds": [],
-            "videos": []
         },
         {
             "channelName": "TokyoStreetView - Japan The Beautiful",
             "channelId": "UCAxMEpfzdJ2dkrplSWehgcA",
-            "playlistIds": [],
-            "videos": []
         },
         {
             "channelName": "Tokyo Explorer",
             "channelId": "UCHWmg1FyYtFRiClvHkB-NVA",
-            "playlistIds": [],
-            "videos": []
         },
         {
             "channelName": "Jesse Yang",
             "channelId": "UCUHwUoMFhNy7wRGbwU4vaGw",
-            "playlistIds": [],
-            "videos": []
         }
     ]
+    
     channelContentUrl = id => `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${id}&key=${this.YT_API_TOKEN}`
     playlistItemsUrl = (id, pageToken = '') => `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=12345&playlistId=${id}&key=${this.YT_API_TOKEN}&pageToken=${pageToken}`
 
