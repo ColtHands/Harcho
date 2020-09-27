@@ -133,12 +133,10 @@ abbey145 arr = do
     (a ^ (b % (c-1))) % c
     where integerArr = map toInteger $ arr
 
--- modExp :: Integer -> Integer -> Integer -> Integer
--- modExp a b c = mod (a^(mod b (c-1))) (c)
-
 main :: IO()
 main = do
-    readAbbeyArr abbey145
+    show readInputsFromFile
+    -- readAbbeyArr abbey145
     -- print (removeWovelFromString "asdasdsadaqfdsgrtukiu")
     -- print (printWordedArrayForCodeAbbey abbey7)
     -- print (printWordedArrayForCodeAbbey abbey6)
