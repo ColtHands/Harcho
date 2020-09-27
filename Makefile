@@ -6,9 +6,6 @@ branch := $(shell git rev-parse --abbrev-ref HEAD)
 # 	$(MAKE) python
 # 	$(MAKE) haskell
 
-asmr asmrmap:
-	node ./asmrmap/index.js
-
 hask hs h:
 	echo "RUNNING HASKELL"
 	runhaskell ./src/haskell/index.hs

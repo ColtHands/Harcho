@@ -12,7 +12,7 @@
   "version": "1.0.0",
   "main": "./asmrmap/index.js",
   "repository": "https://github.com/LastDino/solyanka.git/",
-  "author": "F1ks3r <f1ks3r@yandex.ru>",
+  "author": "ColdHands",
   "license": "MIT",
   "private": true
 }
