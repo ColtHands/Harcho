@@ -16,35 +16,29 @@ namespace csharp {
             CreateHostBuilder().Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder() =>
-            Host.CreateDefaultBuilder()
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
+        public static IHostBuilder CreateHostBuilder() {
+            return Host.CreateDefaultBuilder()
+                .ConfigureWebHostDefaults(bldr => {
+                    bldr.UseUrls("http://*:8081");
+                    bldr.UseStartup<Startup>();
                 });
+        }
     }
 
     public class Startup {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services) {
             services.AddControllers();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
 
             app.UseRouting();
-            // app.UseCors();
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
-                // endpoints.MapGet("/", async context => {
-                //     await context.Response.WriteAsync("Hello World!");
-                // });
             });
         }
     }
