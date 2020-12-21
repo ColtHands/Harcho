@@ -11,15 +11,15 @@ hask hs h:
 	runhaskell ./src/haskell/index.hs
 
 node n js:
-	echo "RUNNING Node.js"
 	node src/js/index.js
 
+csharp:
+	cd src/csharp && dotnet run
+
 rust:
-	echo "RUNNING RUST"
 	cargo run
 
 py:
-	echo "RUNNING PYTHON"
 	python ./src/python/index.py
 
 elixir:
@@ -29,10 +29,7 @@ lisp:
 	sbcl --script ./src/lisp/index.lisp
 
 ps:
-	powershell.exe -noexit -file "C:\Users\F1ks3r\desktop\stuff\junk\solyanka\PowerShell.ps1" "MY-PC"
-
-php:
-	php ./src/php/index.php
+	powershell.exe -noexit -file "C:\Users\F1ks3r\desktop\stuff\junk\solyanka\PowerShell\PowerShell.ps1" "MY-PC"
 
 save:
 	git branch
