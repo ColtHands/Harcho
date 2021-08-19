@@ -1,10 +1,16 @@
-import tensorflow as tf
-import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import tensorflow as tf
 
-print(tf.version)
+dftrain = pd.read_csv('https://storage.googleapis.com/tf-datasets/titanic/train.csv') # training data
+dfeval = pd.read_csv('https://storage.googleapis.com/tf-datasets/titanic/eval.csv') # testing data
+y_train = dftrain.pop('survived')
+y_eval = dfeval.pop('survived')
 
-x = [1, 2, 2.5, 3, 4]
-y = [1, 4, 7, 9, 15]
-plt.plot(x, y, 'ro')
-plt.axis([0, 6, 0, 20])
+print(dftrain.head())
+print(dftrain.shape)
+
+dftrain.age.hist(bins=20)
+
+plt.show()
