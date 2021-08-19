@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "@tensorflow/tfjs-node": "^3.8.0",
+    "asciichart": "^1.5.25",
     "axios": "^0.21.1",
     "express": "^4.17.1"
   }

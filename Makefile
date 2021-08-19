@@ -1,10 +1,7 @@
 branch := $(shell git rev-parse --abbrev-ref HEAD)
 
-# run:
-# 	$(MAKE) rust
-# 	$(MAKE) dotnet
-# 	$(MAKE) python
-# 	$(MAKE) haskell
+js javascript:
+	node ./src/js/index.js
 
 hask hs h:
 	echo "RUNNING HASKELL"
