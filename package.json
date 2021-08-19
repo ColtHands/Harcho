@@ -1,12 +1,6 @@
 {
-  "dependencies": {
-    "axios": "^0.19.2",
-    "form-data": "^3.0.0",
-    "inn-check": "^1.0.12",
-    "nodemon": "^2.0.4"
-  },
   "scripts": {
-    "watch": "nodemon ./asmrmap/index.js --ignore asmrmap/data/"
+    "start": "node src/js/index.js"
   },
   "name": "solyanka",
   "version": "1.0.0",
@@ -14,5 +8,10 @@
   "repository": "https://github.com/LastDino/solyanka.git/",
   "author": "ColdHands",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^3.8.0",
+    "axios": "^0.21.1",
+    "express": "^4.17.1"
+  }
 }

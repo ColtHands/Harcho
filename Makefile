@@ -18,6 +18,7 @@ rust:
 
 py:
 	python ./src/python/index.py
+	python ./src/python/tensorStuff.py
 
 lisp:
 	sbcl --script ./src/lisp/index.lisp
