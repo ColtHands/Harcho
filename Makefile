@@ -1,6 +1,6 @@
 branch := $(shell git rev-parse --abbrev-ref HEAD)
 
-js javascript:
+js javascript node n:
 	node ./src/js/index.js
 
 hask hs h:
