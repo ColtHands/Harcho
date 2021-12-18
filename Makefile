@@ -1,7 +1,7 @@
 branch := $(shell git rev-parse --abbrev-ref HEAD)
 
 js javascript node n:
-	node ./src/js/index.js
+	nodemon ./src/js/index.js
 
 hask hs h:
 	echo "RUNNING HASKELL"
