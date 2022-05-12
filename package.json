@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "node src/js/index.js"
+    "start": "node src/js/index.js",
+    "save": "git add . && git commit -m save && git push"
   },
   "name": "solyanka",
   "version": "1.0.0",
