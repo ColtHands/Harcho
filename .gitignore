@@ -6,3 +6,4 @@ node_modules
 yarn.lock
 src/csharp/bin
 src/csharp/obj
+.vscode
