@@ -7,17 +7,17 @@ hask hs h:
 	echo "RUNNING HASKELL"
 	runhaskell ./src/haskell/index.hs
 
-csharp:
+csharp cs:
 	cd src/csharp && dotnet run
 
-rust:
+rust r:
 	cargo run
 
-py:
+py python p`:
 	python ./src/python/index.py
 	python ./src/python/tensorStuff.py
 
-lisp:
+lisp li l:
 	sbcl --script ./src/lisp/index.lisp
 
 save:
