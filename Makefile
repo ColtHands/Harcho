@@ -5,7 +5,7 @@ js javascript node n:
 
 hask hs h:
 	echo "RUNNING HASKELL"
-	runhaskell ./src/haskell/index.hs
+	stack runghc ./src/haskell/index.hs
 
 csharp cs:
 	cd src/csharp && dotnet run
@@ -29,3 +29,10 @@ save:
 
 update:
 	echo "asd"
+
+install:
+	echo "installing make"
+	choco install make
+	echo "installing haskell environment"
+	choco install stack
+	stack install split
