@@ -5,7 +5,7 @@ js javascript node n:
 
 hask hs h:
 	echo "RUNNING HASKELL"
-	stack runghc ./src/haskell/index.hs
+	stack runghc Main.hs
 
 csharp cs:
 	cd src/csharp && dotnet run

@@ -1,3 +1,3 @@
-module MyModule (myModule) where
+module Src.Haskell.MyModule (myModule) where
 
 myModule = "hello world"
