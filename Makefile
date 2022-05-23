@@ -7,10 +7,7 @@ hask hs h:
 	echo "RUNNING HASKELL"
 	runhaskell ./src/haskell/index.hs
 
-csharp cs:
-	cd src/csharp && dotnet run
-
-rust r:
+rust:
 	cargo run
 
 py python p`:
