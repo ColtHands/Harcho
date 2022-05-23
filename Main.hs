@@ -7,8 +7,6 @@ import Data.List.Split (splitOn)
 import Src.Haskell.MyModule (myModule)
 import Src.Haskell.JustANumber (aNumber)
 
-
-
 main :: IO()
 main = do
-    print (length' [1..5])
+    print ([1..5])
