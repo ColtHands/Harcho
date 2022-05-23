@@ -5,7 +5,7 @@ js javascript node n:
 
 hask hs h:
 	echo "RUNNING HASKELL"
-	runhaskell ./src/haskell/index.hs
+	stack runghc Main.hs
 
 rust:
 	cargo run
@@ -26,3 +26,10 @@ save:
 
 update:
 	echo "asd"
+
+install:
+	echo "installing make"
+	choco install make
+	echo "installing haskell environment"
+	choco install stack
+	stack install split
