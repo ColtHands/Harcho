@@ -14,6 +14,3 @@ python --version
 
 rustc --version
 rustc 1.34.1 (fc50f328b 2019-04-24)
-
-elixir --version
-Elixir 1.8.1
