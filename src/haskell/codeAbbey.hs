@@ -14,5 +14,4 @@ collatzLength n = length (collatzList (n)) - 1
 
 first a b = a + b
 second arr = sum arr
--- third = 
 fourtyEight arrOfStrOfInts = unwords (map show (map collatzLength (map read (words arrOfStrOfInts) :: [Int])))
