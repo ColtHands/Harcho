@@ -279,5 +279,4 @@ var mySqrt = function(x) {
     }
 
     return -1
-};
-console.log(mySqrt(8))
+}
