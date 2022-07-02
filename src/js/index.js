@@ -4,13 +4,13 @@
 //     const winPercentage = 0.86
 //     let staringMoney = 10000
 //     let startingBet = 5
-//     for(let i = 1; i <= 1000; i++) {
+//     for(let i = 1 i <= 1000 i++) {
 //         console.log(`${i}: staringMoney: ${staringMoney} | startingBet: ${startingBet}`)
 //         const coinFlip = Math.random() < 0.5
 //         staringMoney = staringMoney - startingBet
 //         if(startingBet > staringMoney) {
 //             console.log('LOST ALL')
-//             break;
+//             break
 //         }
 
 //         if(coinFlip) {
@@ -116,7 +116,7 @@
 
 //     let carpetCoverage = carpetArr.slice(0, carpetLen).filter(Boolean).length
 
-//     for(let i = 0; i < carpetArr.length; i++) {
+//     for(let i = 0 i < carpetArr.length i++) {
 //         // console.log('carpetCoverage', carpetCoverage)
 //         if(carpetCoverage > maxCarpetCoverage) {
 //             maxCarpetCoverage = carpetCoverage
@@ -144,13 +144,13 @@
 //     let carpetArr = []
 //     let maxCarpetCoverage = 0
 
-//     for(let i = 0; i < tiles.length; i++) {
-//         for(let j = tiles[i][0]-1; j < tiles[i][1]; j++) {
+//     for(let i = 0 i < tiles.length i++) {
+//         for(let j = tiles[i][0]-1 j < tiles[i][1] j++) {
 //             carpetArr[j] = 1
 //         }
 //     }
     
-//     for(let i = 0; i < carpetLen; i++) {
+//     for(let i = 0 i < carpetLen i++) {
 //         let carpetCoverage = 0
 
 //         if(carpetArr[i]) {
@@ -179,45 +179,45 @@
 // console.timeEnd('maximumWhiteTiles1 mega')
 
 // var maximumWhiteTiles = function (tiles, carpetLen) {
-//     let max = 0;
+//     let max = 0
 //     tiles.forEach(data => {
-//         max = Math.max(max, data[0], data[1]);
-//     });
+//         max = Math.max(max, data[0], data[1])
+//     })
 
 //     if (carpetLen >= 434783959) {
-//         let result = 0;
+//         let result = 0
 //         tiles.forEach(data => {
-//             result += (data[1] - data[0] + 1);
-//         });
-//         return result;
+//             result += (data[1] - data[0] + 1)
+//         })
+//         return result
 //     }
 
-//     let titleArray = new Array(max + 1).fill(0);
+//     let titleArray = new Array(max + 1).fill(0)
 
 //     tiles.forEach(data => {
-//         for (let i = data[0]; i <= data[1]; i++) {
-//             titleArray[i] = 1;
+//         for (let i = data[0] i <= data[1] i++) {
+//             titleArray[i] = 1
 //         }
-//     });
+//     })
 
-//     let tempMax = titleArray.slice(1, carpetLen + 1).reduce((a, b) => a + b);
-//     let result = tempMax;
+//     let tempMax = titleArray.slice(1, carpetLen + 1).reduce((a, b) => a + b)
+//     let result = tempMax
 
-//     for (let i = carpetLen + 1; i < titleArray.length; i++) {
-//         tempMax = tempMax - titleArray[i - carpetLen] + titleArray[i];
-//         result = Math.max(result, tempMax);
+//     for (let i = carpetLen + 1 i < titleArray.length i++) {
+//         tempMax = tempMax - titleArray[i - carpetLen] + titleArray[i]
+//         result = Math.max(result, tempMax)
 //     }
     
-//     return result;
-// };
+//     return result
+// }
 
 // var maximumWhiteTiles3 = function(tiles, carpetLen) {
 //     let max = 0
 //     let carpetArr = []
 //     let maxCarpetCoverage = 0
     
-//     for(let i = 0; i < tiles.length; i++) {
-//         for(let j = tiles[i][0]-1; j < tiles[i][1]; j++) {
+//     for(let i = 0 i < tiles.length i++) {
+//         for(let j = tiles[i][0]-1 j < tiles[i][1] j++) {
 //             carpetArr[j] = 1
 //         }
 //     }
@@ -225,7 +225,7 @@
 //     max = carpetArr.slice(0, carpetLen-1).filter(Boolean).length
 //     maxCarpetCoverage = max
     
-//     for (let i = carpetLen; i < carpetArr.length; i++) {
+//     for (let i = carpetLen i < carpetArr.length i++) {
 //         // console.log('carpetArr[i]')
 //         if(carpetArr[i]) {
 //             max++
@@ -243,40 +243,136 @@
 // maximumWhiteTiles3([[1,5],[10,11],[12,18],[20,25],[30,32]], 10)
 // console.timeEnd('maximumWhiteTiles3([[1,5],[10,11],[12,18],[20,25],[30,32]], 10)')
 
-var mySqrt = function(x) {
-    if(x < 2) {
-        return x
-    }
+// var mySqrt = function(x) {
+//     if(x < 2) {
+//         return x
+//     }
     
-    let start = 1
-    let end = x / 2
+//     let start = 1
+//     let end = x / 2
     
-    while(start <= end) {        
-        let mid = Math.floor((end+start) / 2)
-        let midSquared = mid*mid
+//     while(start <= end) {        
+//         let mid = Math.floor((end+start) / 2)
+//         let midSquared = mid*mid
                 
-        console.log(`looking for ${x} | start is ${start} | end is ${end} | mid is ${mid} | midSquared is ${midSquared}`)
+//         console.log(`looking for ${x} | start is ${start} | end is ${end} | mid is ${mid} | midSquared is ${midSquared}`)
         
-        if(start+1 == end) {
-            return mid
-        }
+//         if(start+1 == end) {
+//             return mid
+//         }
 
-        // if(start === end) {
-        //     r
-        // }
+//         // if(start === end) {
+//         //     r
+//         // }
         
-        if(midSquared === x) {
-            return mid
-        }
+//         if(midSquared === x) {
+//             return mid
+//         }
         
-        if(midSquared < x) {
-            start = mid
-        }
+//         if(midSquared < x) {
+//             start = mid
+//         }
         
-        if(midSquared > x) {
-            end = mid
-        }
+//         if(midSquared > x) {
+//             end = mid
+//         }
+//     }
+
+//     return -1
+// }
+
+var MyCircularQueue = function(k) {
+    this.length = k
+    this.queue = new Array(k).fill(null)
+    this.front = -1
+    this.rear = -1
+}
+
+MyCircularQueue.prototype.enQueue = function(value) {
+    if(this.isEmpty()) {
+        this.rear++
     }
 
-    return -1
+    if(this.isFull()) {
+        return false
+    } else {
+        if(this.Rear()) {
+            this.front = 0
+        } else {
+            this.front++
+        }
+        this.queue[this.front] = value
+        return true
+    }
 }
+
+MyCircularQueue.prototype.deQueue = function() {
+    if(this.isEmpty()) {
+        console.log('empty')
+        return false
+    } else {
+        this.queue.splice(this.rear, 1, null)
+        
+        if(this.rear == this.front) {
+            this.front = -1
+            this.rear = -1
+        } else {
+            if(this.rear + 1 == this.length) {
+                this.rear = 0
+            } else {
+                this.rear++
+            }
+        }
+        
+        return true
+    }
+}
+
+MyCircularQueue.prototype.Front = function() {
+    return this.front
+}
+
+MyCircularQueue.prototype.Rear = function() {
+    return this.rear
+}
+
+MyCircularQueue.prototype.isEmpty = function() {
+    return !this.queue.filter(e => e != null).length
+}
+
+MyCircularQueue.prototype.isFull = function() {
+    return this.queue.filter(e => e != null).length == this.length
+}
+
+const queue = new MyCircularQueue(5)
+
+console.log(queue.queue, `(front: ${queue.Front()})`, `(rear: ${queue.Rear()})`)
+
+queue.enQueue(1)
+queue.enQueue(2)
+queue.enQueue(3)
+queue.enQueue(4)
+queue.enQueue(5)
+queue.enQueue(5)
+queue.enQueue(5)
+queue.enQueue(5)
+
+console.log(queue.queue, `(front: ${queue.Front()})`, `(rear: ${queue.Rear()})`)
+
+queue.deQueue()
+queue.deQueue()
+
+console.log(queue.queue, `(front: ${queue.Front()})`, `(rear: ${queue.Rear()})`)
+
+queue.enQueue(6)
+
+console.log(queue.queue, `(front: ${queue.Front()})`, `(rear: ${queue.Rear()})`)
+
+queue.deQueue()
+queue.deQueue()
+queue.deQueue()
+queue.deQueue()
+// queue.deQueue()
+// queue.deQueue()
+
+console.log(queue.queue, `(front: ${queue.Front()})`, `(rear: ${queue.Rear()})`)
