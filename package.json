@@ -3,10 +3,10 @@
     "start": "node src/js/index.js",
     "save": "git add . && git commit -m save && git push"
   },
-  "name": "solyanka",
+  "name": "harcho",
   "version": "1.0.0",
   "main": "./asmrmap/index.js",
-  "repository": "https://github.com/LastDino/solyanka.git/",
+  "repository": "https://github.com/LastDino/harcho.git/",
   "author": "ColdHands",
   "license": "MIT",
   "private": true,
