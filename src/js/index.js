@@ -296,7 +296,7 @@ MyCircularQueue.prototype.enQueue = function(value) {
     if(this.isFull()) {
         return false
     } else {
-        if(this.Rear()) {
+        if(this.rear && this.front == this.length-1) {
             this.front = 0
         } else {
             this.front++
@@ -308,7 +308,6 @@ MyCircularQueue.prototype.enQueue = function(value) {
 
 MyCircularQueue.prototype.deQueue = function() {
     if(this.isEmpty()) {
-        console.log('empty')
         return false
     } else {
         this.queue.splice(this.rear, 1, null)
@@ -329,11 +328,11 @@ MyCircularQueue.prototype.deQueue = function() {
 }
 
 MyCircularQueue.prototype.Front = function() {
-    return this.front
+    return this.rear > -1 ? this.queue[this.rear] : -1
 }
 
 MyCircularQueue.prototype.Rear = function() {
-    return this.rear
+    return this.front > -1 ? this.queue[this.front] : -1
 }
 
 MyCircularQueue.prototype.isEmpty = function() {
@@ -344,35 +343,22 @@ MyCircularQueue.prototype.isFull = function() {
     return this.queue.filter(e => e != null).length == this.length
 }
 
-const queue = new MyCircularQueue(5)
+const queue = new MyCircularQueue(3)
 
 console.log(queue.queue, `(front: ${queue.Front()})`, `(rear: ${queue.Rear()})`)
 
-queue.enQueue(1)
-queue.enQueue(2)
-queue.enQueue(3)
-queue.enQueue(4)
-queue.enQueue(5)
-queue.enQueue(5)
-queue.enQueue(5)
-queue.enQueue(5)
+queue.enQueue(1); // return True
+queue.enQueue(2); // return True
+queue.enQueue(3); // return True
+queue.enQueue(4); // return False
 
 console.log(queue.queue, `(front: ${queue.Front()})`, `(rear: ${queue.Rear()})`)
 
-queue.deQueue()
-queue.deQueue()
+console.log(queue.isFull())
+console.log(queue.deQueue())
 
 console.log(queue.queue, `(front: ${queue.Front()})`, `(rear: ${queue.Rear()})`)
 
-queue.enQueue(6)
-
-console.log(queue.queue, `(front: ${queue.Front()})`, `(rear: ${queue.Rear()})`)
-
-queue.deQueue()
-queue.deQueue()
-queue.deQueue()
-queue.deQueue()
-// queue.deQueue()
-// queue.deQueue()
+queue.enQueue(4); // return True
 
 console.log(queue.queue, `(front: ${queue.Front()})`, `(rear: ${queue.Rear()})`)
